@@ -4,9 +4,13 @@
 
    <extension
          point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="com.packtpub.e4.hello.ui.commands.category">
+      </category>
       <command
             name="Sample Command"
-            description="Say Hello World"
+            categoryId="com.packtpub.e4.hello.ui.commands.category"
             id="com.packtpub.e4.hello.ui.commands.sampleCommand">
       </command>
    </extension>
@@ -26,16 +30,20 @@
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
    </extension>
-<!--
    <extension
          point="org.eclipse.ui.menus">
-      <menuContribution allPopups="false"
-            locationURI="menu:new?after=new">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Sample Menu"
+               mnemonic="M"
+               id="com.packtpub.e4.hello.ui.menus.sampleMenu">
             <command
                   commandId="com.packtpub.e4.hello.ui.commands.sampleCommand"
-                  label="Hello"
-                  style="push">
+                  mnemonic="S"
+                  id="com.packtpub.e4.hello.ui.menus.sampleCommand">
             </command>
+         </menu>
       </menuContribution>
       <menuContribution
             locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
@@ -48,21 +56,6 @@
                   id="com.packtpub.e4.hello.ui.toolbars.sampleCommand">
             </command>
          </toolbar>
-      </menuContribution>
-   </extension>
--->
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution allPopups="false"
-            locationURI="menu:new?after=new">
-            <command
-                  commandId="org.eclipse.ui.newWizard"
-                  style="push">
-               <parameter
-                     name="newWizardId"
-                     value="org.eclipse.jdt.ui.wizards.JavaProjectWizard">
-               </parameter>
-            </command>
       </menuContribution>
    </extension>
 
